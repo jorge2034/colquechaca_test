@@ -15,6 +15,10 @@ class CreateActivosTable extends Migration
     {
         Schema::create('activos', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre');
+            $table->string('codigo');
+            $table->text('descripcion');
+            $table->integer('cantidad_inicial');
             $table->timestamps();
         });
     }

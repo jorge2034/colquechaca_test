@@ -15,6 +15,11 @@ class CreateBajasTable extends Migration
     {
         Schema::create('bajas', function (Blueprint $table) {
             $table->id();
+            $table->integer('cantidad');
+            $table->unsignedBigInteger('activo_id')->nullable();
+            $table->text('motivo');
+            $table->date('fecha');
+            $table->foreign('activo_id')->references('id')->on('activos');
             $table->timestamps();
         });
     }
