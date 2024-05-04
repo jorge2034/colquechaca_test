@@ -36,7 +36,7 @@ class ActivoController extends Controller
     public function store(Request $request)
     {
 
-        $codigo = Activo::latest()->first()->codigo;
+        $codigo = Activo::latest()->first()?->codigo;
         $nuevoCodigo = $this->generarcodigo($codigo);
         Activo::create($request->all()+ ['codigo' => $nuevoCodigo]);
         return response()->json(['message' => 'Activo creado exitosamente'], 201);
